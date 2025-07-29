@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Downloads/memory_machine"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "claw_machine",
+		"liveServer.settings.port": 5501
+	}
+}

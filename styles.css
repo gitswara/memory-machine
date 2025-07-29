@@ -1,0 +1,99 @@
+body {
+    background-color: #f0f8ff;
+    margin: 0;
+    font-family: monospace;
+}
+  
+  .game-container {
+    position: relative;
+    width: 700px;
+    height: 700px;
+    margin: 50px auto;
+    background-color: #d0e4f7;
+    image-rendering: pixelated;
+    justify-content: center;
+  }
+  
+  .claw-machine {
+    position: absolute;
+    size:cover;
+    top: 0;
+    left: 120px;
+    width: 500px;
+    height: auto;
+    z-index: 1;
+  }
+  
+  .static-balls{
+    position:absolute;
+    size:cover;
+    top: 0;
+    left:120px;
+    width:500px;
+    height:auto;
+    z-index:2;
+  }
+
+
+  .drop-button {
+    position: absolute;
+    size:cover;
+    top: 0;
+    left: 120px;
+    width: 500px;
+    height: auto;
+    z-index: 10;
+  }
+
+  .play-button{
+    position: absolute;
+    size:contain;
+    top: 466px;
+    left: 406px;
+    width: 90px;
+    height: auto;
+    z-index: 10;
+    cursor:pointer;
+  }
+
+
+  .claw {
+    position: absolute;
+    size:cover;
+    top: 0;
+    left: 120px;
+    width: 500px;
+    height: auto;
+    z-index: 3;
+  }
+
+  .ball{
+    position: absolute;
+    size:cover;
+    width: 500px;
+    height: auto;
+    z-index: 4;
+  }
+
+  #blue-ball{
+    top:103px;
+    left:150px;     
+  }
+
+
+  #yellow-ball{
+    top:103px;
+    left:280px;     
+  }
+
+
+  #red-ball{
+    top:103px;
+    left:300px;     
+  }
+
+
+  #green-ball{
+    top:103px;
+    left:200px;     
+  }
