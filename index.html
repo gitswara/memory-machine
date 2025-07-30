@@ -13,19 +13,30 @@
     <img src="assets/static_balls.png" class="static-balls" alt="Static Balls">
     <img src = "assets/button0.png" class="drop-button" id = "dropBtn" alt="Drop Button">
     <img src = "assets/claw0.png" class="claw" id = "claw" alt="Claw">
-    <img src = "assets/blue_ball.png" class="ball" id="blue-ball">
-    <img src = "assets/red_ball.png" class="ball" id="red-ball">
-    <img src = "assets/green_ball.png" class="ball" id="green-ball">
-    <img src = "assets/yellow_ball.png" class="ball" id="yellow-ball">
+    <img src = "assets/blue_ball_cropped.png" class="ball" id="blue-ball" style="left: 420px; top: 300px;">
+    <img src = "assets/red_ball_cropped.png" class="ball" id="red-ball" style="left: 350px; top: 300px;">
+    <img src = "assets/green_ball_cropped.png" class="ball" id="green-ball" style="left: 310px; top: 300px;">
+    <img src = "assets/yellow_ball_cropped.png" class="ball" id="yellow-ball" style="left: 380px; top: 300px;">
     <img src = "assets/play0_cropped.png" class = "play-button" id="playBtn" class="play-button"></div>
+    <img src = "assets/won.png" class = "msg" id="won-msg">
+    <img src = "assets/missed.png" class = "msg" id="missed-msg">
+
+
+    <img src = "assets/blue_ball_cropped.png" class="prize" id="blue-ball-prize">
+    <img src = "assets/red_ball_cropped.png" class="prize" id="red-ball-prize">
+    <img src = "assets/green_ball_cropped.png" class="prize" id="green-ball-prize">
+    <img src = "assets/yellow_ball_cropped.png" class="prize" id="yellow-ball-prize" >
+    
     <audio id="playSound" src="assets/play-sound.mp3"></audio>
-
-    <img src="assets/red_ball.png" id="gift-red-ball" class="gift-ball" style="display: none; left: 50px; top: 360px;">
-    <img src="assets/blue_ball.png" id="gift-blue-ball" class="gift-ball" style="display: none; left: 100px; top: 360px;">
-    <img src="assets/green_ball.png" id="gift-green-ball" class="gift-ball" style="display: none; left: 150px; top: 360px;">
-    <img src="assets/yellow_ball.png" id="gift-yellow-ball" class="gift-ball" style="display: none; left: 200px; top: 360px;">
-
     </div>
+
+
+    <div class = "memory-container" id="memory-container" style="display: none; text-align: center;">
+      <h2 id="memory-date"></h2>
+      <img id="memory-image" src="" style="max-width: 200px;" />
+      <p id="memory-text"></p>
+    </div>
+    
 
     <script src="script.js"></script>
 </body>
