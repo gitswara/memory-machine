@@ -8,23 +8,71 @@ body {
     position: absolute;
     left:30px;
     width: 700px;
-    height: 700px;
+    height: 900px;
     margin: 50px auto;
-    background-color: #d0e4f7;
     image-rendering: pixelated;
     justify-content: center;
   }
   
+  #machine-screen{
+    display:none;
+  }
+  #machine-frame{
+    width:700px;
+    height:800px;
+    z-index: 0;
+    image-rendering: pixelated ;
+  }
   .memory-container{
     position: absolute;
     left:800px;
     width: 600px;
-    height: 700px;
-    margin: 50px auto;
-    background-color: #f7d0ed;
+    height: 800px;
+    margin-top:50px;
     image-rendering: pixelated;
     justify-content: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+
+  #memory-date{
+   margin-top: 70px;
+   color:white;
+  }
+
+  #memory-text{
+    margin:20px;
+    color:white;
+    max-height: 100px;
+    margin-left: 50px;
+    max-width: 500px;
+  }
+
+  #image-frame {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px;
+    border: 5px solid #d86666;
+    box-shadow: 0 0 10px rgba(243, 164, 164, 0.453);
+    background: #d86666;
+    margin-bottom: 10px;
+  }
+  
+  #memory-image {
+    display: block;
+    max-width: 200px;
+    height: auto;
+    image-rendering: pixelated; /* optional for retro look */
+  }
+  
+  #memory-frame{
+    position:absolute;
+    width:600px;
+    left:0px;
+    height:800px;
+    z-index:-2;
   }
   .claw-machine {
     position: absolute;
@@ -113,6 +161,19 @@ body {
     left:310px; 
   }
 
+  #credits-box {
+    position: absolute;
+    width:10px;
+    height:20px;
+    top: 538px;
+    left:398px;
+    color: #f0eaea;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 20px;
+    border-radius: 4px;
+    z-index: 5000;
+  }
+  
   .msg{
     width: 200px;
     height: auto;
@@ -120,6 +181,16 @@ body {
     left:300px;
     top:600px;
     position:absolute;
+  }
+
+  #reset-btn{
+    width: 200px;
+    height: auto;
+    image-rendering: pixelated;
+    left:300px;
+    top:600px;
+    position:absolute;
+    z-index: 20;
   }
 
   #won-msg{

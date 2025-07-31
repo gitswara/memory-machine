@@ -3,11 +3,14 @@ window.addEventListener('DOMContentLoaded', () => {
     const dropBtn = document.getElementById("dropBtn");
     const claw = document.getElementById("claw");
     const playSound = document.getElementById("playSound");
+    const resetBtn = document.getElementById("reset-btn");
+    const creditsBox = document.getElementById("credits-box");
 
+    
 
     const ballPositions = {
       205: "red-ball",
-      287: "blue-ball",
+      280: "blue-ball",
       170: "green-ball",
       245: "yellow-ball"
     };
@@ -17,42 +20,55 @@ window.addEventListener('DOMContentLoaded', () => {
         420: "blue-ball",
         310: "green-ball",
         380: "yellow-ball"
-      };
+    };
 
   
-    const TOLERANCE = 10;
+    let gameLocked = false;
+    
+    const TOLERANCE = 3;
 
 
     const memories = [
         {
           date: "Jan 10, 2023",
           image: "assets/concert_pic.jpeg",
-          text: "Our first concert together — you almost cried during the encore."
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a vulputate dui. Maecenas suscipit blandit maximus. Quisque in egestas dui, pharetra vulputate leo. Aenean eget nibh at quam aliquet condimentum ac sit amet lorem."
         },
         {
           date: "Feb 14, 2023",
           image: "assets/picnic_pic.jpg",
-          text: "Valentine's Day picnic — you forgot the sandwiches but remembered the stars."
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a vulputate dui. Maecenas suscipit blandit maximus. Quisque in egestas dui, pharetra vulputate leo. Aenean eget nibh at quam aliquet condimentum ac sit amet lorem."
         },
         {
           date: "Apr 8, 2023",
           image: "assets/hike_pic.jpeg",
-          text: "That rainy hike where we got lost but found the best view ever."
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a vulputate dui. Maecenas suscipit blandit maximus. Quisque in egestas dui, pharetra vulputate leo. Aenean eget nibh at quam aliquet condimentum ac sit amet lorem."
         }
     ];
 
-      
+    creditsBox.innerText = memories.length; 
+
+    let memoryIndex = 0;
+
+    resetBtn.addEventListener("click", () => {
+        memoryIndex = 0;
+        creditsBox.innerText = `${memories.length}`;
+        document.getElementById("reset-btn").style.display = "none";
+        document.getElementById("memory-container").style.display = "none";
+        gameLocked = false;
+    });
   
     let moving = false;
     let clawDirection = 1;
     let clawInterval;
+    
   
     // PLAY button: start claw movement
     playBtn.addEventListener("click", () => {
-      if (moving) return;
-  
+      if (moving || gameLocked) return;
+        
       document.getElementById("memory-container").style.display = "none";
-      playBtn.src = "assets/play0_cropped.png";
+      playBtn.src = "assets/play1_cropped.png";
       playSound.currentTime = 0;
       playSound.play();
     
@@ -74,7 +90,7 @@ window.addEventListener('DOMContentLoaded', () => {
   
     // DROP button: run claw animation sequence
     dropBtn.addEventListener("click", async () => {
-      if (!moving) return;
+      if (!moving || gameLocked) return;
   
       playBtn.src = "assets/play0_cropped.png";
       dropBtn.src = "assets/button1.png";
@@ -122,13 +138,27 @@ window.addEventListener('DOMContentLoaded', () => {
 
         prizeElement.onclick = () => {
             prizeElement.style.display = "none"; // hide prize ball
-          
-            const memory = memories[Math.floor(Math.random() * memories.length)];
-          
-            document.getElementById("memory-date").innerText = memory.date;
-            document.getElementById("memory-image").src = memory.image;
-            document.getElementById("memory-text").innerText = memory.text;
-            document.getElementById("memory-container").style.display = "block";
+                
+            if (memoryIndex < memories.length) {
+                const memory = memories[memoryIndex];
+
+                document.getElementById("memory-date").innerText = memory.date;
+                document.getElementById("memory-image").src = memory.image;
+                document.getElementById("memory-text").innerText = memory.text;
+                document.getElementById("memory-container").style.display = "block";
+
+                memoryIndex++; // move to next memory
+
+                const creditsLeft = memories.length - memoryIndex;
+                creditsBox.innerText = `${creditsLeft}`;
+
+            }
+
+            // If last memory shown, show reset button
+            if (memoryIndex >= memories.length) {
+                gameLocked = true;
+                document.getElementById("reset-btn").style.display = "inline-block";
+            }
         };
 
           
@@ -154,6 +184,8 @@ window.addEventListener('DOMContentLoaded', () => {
         claw.src = "assets/claw0.png";
         document.getElementById("missed-msg").style.display = "none";
       }
+
+
 
     });
   
