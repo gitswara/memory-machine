@@ -1,15 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getFirestore, collection, doc, writeBatch } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// ✅ Firebase config
-const firebaseConfig = {
-  apiKey: "AIzaSyC2XMqfBo94Gc3u-bwhWM9SuRiqaNkN21I",
-  authDomain: "memorymachine-4b6b6.firebaseapp.com",
-  projectId: "memorymachine-4b6b6",
-  storageBucket: "memorymachine-4b6b6.appspot.com",
-  messagingSenderId: "469437378480",
-  appId: "1:469437378480:web:3ddb7f6ec99cbedc3f7075"
-};
+const firebaseConfig = window.__FIREBASE_CONFIG__;
+if (!firebaseConfig) {
+  throw new Error("Missing Firebase config. Run: node scripts/generate-firebase-config.mjs");
+}
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
