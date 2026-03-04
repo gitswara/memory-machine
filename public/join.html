@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Join Memory Machine</title>
+  <link rel="stylesheet" href="join.css">
+  <link rel="icon" type="image/png" href="/assets/icon.png"> 
+
+</head>
+<body>
+  <div id = "code-container" class="container">
+    <h1>Enter Your Memory Machine Code</h1>
+    <form id="joinForm">
+      <input type="text" id="machineCode" placeholder="Enter Code" required />
+      <button id = "submit-btn" type="submit">Join Game</button>
+    </form>
+    <p id="error" style="color: red; display: none;">Machine not found. Please check your code.</p>
+  </div>
+
+  <!-- Firebase scripts -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC2XMqfBo94Gc3u-bwhWM9SuRiqaNkN21I",
+      authDomain: "memorymachine-4b6b6.firebaseapp.com",
+      projectId: "memorymachine-4b6b6",
+      storageBucket: "memorymachine-4b6b6.firebasestorage.app",
+      messagingSenderId: "469437378480",
+      appId: "1:469437378480:web:3ddb7f6ec99cbedc3f7075"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const form = document.getElementById("joinForm");
+    const errorMsg = document.getElementById("error");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const code = document.getElementById("machineCode").value.trim().toUpperCase();
+      const machineRef = collection(db, "machines");
+      const q = query(machineRef, where("code", "==", code));
+      const snapshot = await getDocs(q);
+
+      if (!snapshot.empty) {
+        // Code exists → Redirect to game.html with code
+        window.location.href = `game.html?code=${code}`;
+      } else {
+        errorMsg.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

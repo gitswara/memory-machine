@@ -1,10 +1,50 @@
 body {
-    background-color: #f0f8ff;
-    margin: 0;
-    font-family: monospace;
+  background-color: #f0f8ff;
+  margin: 0;
+  font-family: monospace;
+  overflow-y: hidden;
+}
+
+#home-screen{
+  position:absolute;
+  left:200px;
+  top:200px;
+  width:500px;
+  font-size:30px;
+
+}
+
+#build-btn{
+  size:210px;
+  font-size:20px;
+  font-family:monospace;
+  background-color: #d86666;
+  color:white;
+  border:white;
+}
+
+#build-btn:hover{
+  cursor:pointer;
+  background-color: #c05353;
+}
+
+
+
+#join-btn{
+  size:200px;
+  font-size:20px;
+  font-family:monospace;
+  background-color: #86d866;
+  color:white;
+  border:white;
+}
+
+#join-btn:hover{
+  cursor:pointer;
+  background-color: #72b856;
 }
   
-  .game-container {
+.game-container {
     position: absolute;
     left:30px;
     width: 700px;
@@ -12,14 +52,11 @@ body {
     margin: 50px auto;
     image-rendering: pixelated;
     justify-content: center;
-  }
+}
   
-  #machine-screen{
-    display:none;
-  }
   #machine-frame{
     width:700px;
-    height:800px;
+    height:700px;
     z-index: 0;
     image-rendering: pixelated ;
   }
@@ -71,7 +108,7 @@ body {
     position:absolute;
     width:600px;
     left:0px;
-    height:800px;
+    height:700px;
     z-index:-2;
   }
   .claw-machine {
@@ -165,11 +202,11 @@ body {
     position: absolute;
     width:10px;
     height:20px;
-    top: 538px;
-    left:398px;
+    top: 490px;
+    left:365px;
     color: #f0eaea;
     font-family: 'Press Start 2P', monospace;
-    font-size: 20px;
+    font-size: 12px;
     border-radius: 4px;
     z-index: 5000;
   }
@@ -187,23 +224,29 @@ body {
     width: 200px;
     height: auto;
     image-rendering: pixelated;
-    left:300px;
-    top:600px;
+    left:260px;
+    top:520px;
     position:absolute;
     z-index: 20;
   }
 
   #won-msg{
     display:none;
+    top:520px;
+    left:260px;
+
   }
 
   #missed-msg{
     display:none;
+    top:520px;
+    left:260px;
+
   }
 
   .prize{
-    top:540px;
-    left: 275px;
+    top:480px;
+    left: 250px;
     position:absolute;
     image-rendering: pixelated;
     z-index: 1000;
@@ -212,3 +255,88 @@ body {
     display:none;
   }
 
+
+
+
+  #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  
+    background-color: #d86666;
+    color: white;
+    font-family: monospace;
+    font-size: 32px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    z-index: 9999;
+  }
+
+
+  #help-button {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    image-rendering: pixelated;
+  }
+  
+  #help-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    font-family: 'Press Start 2P', monospace;
+  }
+  
+  #help-text {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 280px;
+    background-color: #333;
+    line-height: 15px;
+    color: #fff;
+    padding: 12px;
+    font-size: 10px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
+  #help-button-2 {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    image-rendering: pixelated;
+  }
+  
+  #help-text-2 {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 280px;
+    background-color: #222;
+    color: #fff;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    padding: 12px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    z-index: 1000;
+    transition: opacity 0.5s;
+    pointer-events: none;
+    line-height: 15px;
+  }
+  
+  #help-container:hover #help-text-2 {
+    display: block;
+    pointer-events: auto;
+  }
+  

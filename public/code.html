@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Machine Code</title>
+  <link rel="icon" type="image/png" href="/assets/icon.png"> 
+
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .container {
+      text-align: center;
+      margin-top: 100px;
+      font-family: 'Press Start 2P', monospace;
+    }
+
+    .code-box {
+      text-align: center;
+      justify-content: center;
+      display: flex;
+      background-color: white;
+      font-size: 40px;
+      width:400px;
+      height:55px;
+      left:520px;
+      top:300px;
+      position: absolute;
+      text-justify: center;
+    }
+
+    button {
+      font-family: 'Press Start 2P', monospace;
+      position: absolute;
+      top:450px;
+      font-size: 13px;
+      background-color: #d86666;
+      color:white;
+      width:100px;
+      height:40px;
+      left:670px;
+      border:white;
+    }
+
+    button:hover{
+      background-color: #c05353;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Your Claw Machine is Ready!</h2>
+    <p>Share this code with your friends so they can play:</p>
+    <div class="code-box" id="code-box">Loading...</div>
+    <br>
+    <button onclick="copyCode()">Copy Code</button>
+  </div>
+
+
+  
+  <script>
+    // Extract ?code=XYZ from URL
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    const codeBox = document.getElementById('code-box');
+
+    if (code) {
+      codeBox.textContent = code;
+    } else {
+      codeBox.textContent = "Error: No code found";
+    }
+
+    function copyCode() {
+      if (code) {
+        navigator.clipboard.writeText(code).then(() => {
+          alert("Code copied to clipboard!");
+          window.location.href = `index.html`;
+        });
+      }
+    }
+  </script>
+</body>
+</html>

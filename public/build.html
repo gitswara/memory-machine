@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Memory Machine</title>
+  <link rel="icon" type="image/png" href="/assets/icon.png"> 
+  <link rel="stylesheet" href="build.css">
+</head>
+<body>
+  <div id = "form-screen" class="create-container">
+    <h2>Add Some Memories!</h2>
+
+    <form id="memoryForm" enctype="multipart/form-data">
+      <label>
+        Date:
+        <input type="date" name="date" required>
+      </label>
+
+      <label>
+        Story (Max 100 words):
+        <textarea name="story" rows="4" required></textarea>
+      </label>
+
+      <label>
+        Upload Photo:
+        <input id = "pic_upload" type="file" name="image" accept="image/*" required>
+      </label>
+
+      <button type="submit" class="save-btn">Save Memory</button>
+    </form>
+
+    <div class="next-actions">
+      <button id="finishMachine" style = "display: none;">Finish & Get Code</button>
+    </div>
+
+  </div>
+
+  <div id = "loading-screen" style="display: none;">Setting up your claw machine!</div>
+
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyC2XMqfBo94Gc3u-bwhWM9SuRiqaNkN21I",
+      authDomain: "memorymachine-4b6b6.firebaseapp.com",
+      projectId: "memorymachine-4b6b6",
+      storageBucket: "memorymachine-4b6b6.firebasestorage.app",
+      messagingSenderId: "469437378480",
+      appId: "1:469437378480:web:3ddb7f6ec99cbedc3f7075"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
+
+    <script type="module" src="build.js"></script>
+</body>
+</html>

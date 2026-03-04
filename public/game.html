@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Claw Machine</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="/assets/icon.png"> 
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <script type="module" src="game.js"></script>
+</head>
+<body>
+
+  <div id = "loading-screen" style="display: flex;">Loading your claw machine!</div>
+  <div id="help-container">
+    <img id="help-button-2" src="assets/help.png" alt="Help" />
+    <div id="help-text-2" style = "display:none;">
+      <strong>How to Play:</strong><br><br>
+  
+      • Press <em>“Start”</em> to begin moving the claw left and right.<br>
+      • Press <em>“Drop”</em> to try and catch a memory ball.<br><br>
+  
+      If you catch one:<br>
+      • The ball will move to the prize area.<br>
+      • Click the ball to reveal a memory — including a story, date, and photo.<br><br>
+  
+      You have a limited number of tries based on how many memories were added.<br><br>
+  
+      When you’re done, you can press <em>“Reset”</em> to play again and revisit the memories.<br><br>
+  
+      Enjoy reliving your moments!
+    </div>
+  </div>
+  
+
+  <!-- Game Screen -->
+  <div id="machine-screen" style="display: none;">
+    <div class="game-container">
+      <img src="assets/machine_frame.png" id="machine-frame">
+      <img src="assets/machine.png" class="claw-machine" alt="Claw Machine">
+      <img src="assets/static_balls.png" class="static-balls" alt="Static Balls">
+
+      <img src="assets/button0.png" class="drop-button" id="dropBtn" alt="Drop Button">
+      <img src="assets/claw0.png" class="claw" id="claw" alt="Claw">
+
+      <img src="assets/blue_ball_cropped.png" class="ball" id="blue-ball" style="left: 420px; top: 300px;">
+      <img src="assets/red_ball_cropped.png" class="ball" id="red-ball" style="left: 350px; top: 300px;">
+      <img src="assets/green_ball_cropped.png" class="ball" id="green-ball" style="left: 310px; top: 300px;">
+      <img src="assets/yellow_ball_cropped.png" class="ball" id="yellow-ball" style="left: 380px; top: 300px;">
+
+      <img src="assets/play0_cropped.png" class="play-button" id="playBtn">
+
+      <img src="assets/won.png" class="msg" id="won-msg">
+      <img src="assets/missed.png" class="msg" id="missed-msg">
+
+      <div id="credits-box"></div>
+      <img src="assets/reset.png" id="reset-btn" style="display: none;">
+
+      <!-- Prize balls -->
+      <img src="assets/blue_ball_cropped.png" class="prize" id="blue-ball-prize">
+      <img src="assets/red_ball_cropped.png" class="prize" id="red-ball-prize">
+      <img src="assets/green_ball_cropped.png" class="prize" id="green-ball-prize">
+      <img src="assets/yellow_ball_cropped.png" class="prize" id="yellow-ball-prize">
+
+      <audio id="playSound" src="assets/play-sound.mp3"></audio>
+    </div>
+
+    <!-- Memory Display -->
+    <div class="memory-container" id="memory-container" style="display: none; text-align: center;">
+      <img src="assets/frame.png" id="memory-frame">
+      <h2 id="memory-date"></h2>
+      <div id="image-frame">
+        <img id="memory-image" src="" style = "width:200px; height:auto;">
+      </div>
+      <p id="memory-text"></p>
+    </div>
+  </div>
+
+</body>
+</html>
